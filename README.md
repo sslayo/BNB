@@ -12,7 +12,7 @@ setKeys("vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A", "Nhq
 ```
 #### Getting latest price of a symbol
 ```php
-         //Symbol required         
+//Symbol required         
 getMarket("BNBBTC");
 ```
 <details>

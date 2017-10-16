@@ -116,7 +116,7 @@ ETHUSDT 337.01000000
 #### Getting latest price of a symbol
 ```php
        //Symbol required
-getDepth("BNBBTC"); // If left blank BNB will be first answer
+getDepth("BNBBTC"); // If left blank BNBBTC is default
 ```
 <details>
  <summary>View Response</summary>
@@ -167,10 +167,39 @@ returned json
 ```
 </details>
 
-#### Cancel Order 
+#### Check Open Orders
 ```php
-          //Symbol, OrderID
-cancelOrder("BNBBTC", 456454);
+           //Symbol, OrderID
+openOrders("BNBBTC", 456454);
+```
+<details>
+ <summary>View Response</summary>
+
+```
+[
+		  {
+		    "symbol": "LTCBTC",
+		    "orderId": 1,
+		    "clientOrderId": "myOrder1",
+		    "price": "0.1",
+		    "origQty": "1.0",
+		    "executedQty": "0.0",
+		    "status": "NEW",
+		    "timeInForce": "GTC",
+		    "type": "LIMIT",
+		    "side": "BUY",
+		    "stopPrice": "0.0",
+		    "icebergQty": "0.0",
+		    "time": 1499827319559
+		  }
+		]
+```
+</details>
+
+#### Check Order History
+```php
+           //Symbol, OrderID
+orderHistory("BNBBTC"); // BNBBTC is default if left blank
 ```
 <details>
  <summary>View Response</summary>
@@ -180,7 +209,25 @@ returned json
 ```
 </details>
 
-#### Current Order 
+#### Cancel Order 
+```php
+          //Symbol, OrderID
+cancelOrder("BNBBTC", 456454);
+```
+<details>
+ <summary>View Response</summary>
+
+```
+{
+		  "symbol": "LTCBTC",
+		  "origClientOrderId": "myOrder1",
+		  "orderId": 1,
+		  "clientOrderId": "cancelMyOrder1"
+		}
+```
+</details>
+
+#### Current Position 
 ```php
 currentPosition();
 ```

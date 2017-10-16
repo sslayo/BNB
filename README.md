@@ -1,5 +1,5 @@
 # PHP Binance API
-This project is designed to help you make your own projects that interact with the [Binance API](https://www.binance.com/restapipub.html). You can stream candlestick chart data, market depth, or use other advanced features such as setting stop losses and iceberg orders. This project seeks to have complete API coverage including WebSockets.
+This project aims to provide an easy method to making API calls to Binanace. Any questions or bugs please feel free to contact me
 
 #### Installation
 ```
@@ -163,7 +163,21 @@ orderStatus("BNBBTC", 456454);
  <summary>View Response</summary>
 
 ```
-returned json
+{
+		  "symbol": "LTCBTC",
+		  "orderId": 1,
+		  "clientOrderId": "myOrder1",
+		  "price": "0.1",
+		  "origQty": "1.0",
+		  "executedQty": "0.0",
+		  "status": "NEW",
+		  "timeInForce": "GTC",
+		  "type": "LIMIT",
+		  "side": "BUY",
+		  "stopPrice": "0.0",
+		  "icebergQty": "0.0",
+		  "time": 1499827319559
+		}
 ```
 </details>
 
@@ -195,6 +209,34 @@ openOrders("BNBBTC", 456454);
 		]
 ```
 </details>
+#### ALL orders; active, canceled or filled
+```php
+allOrders();
+```
+<details>
+ <summary>View Response</summary>
+
+```
+[
+		  {
+		    "symbol": "LTCBTC",
+		    "orderId": 1,
+		    "clientOrderId": "myOrder1",
+		    "price": "0.1",
+		    "origQty": "1.0",
+		    "executedQty": "0.0",
+		    "status": "NEW",
+		    "timeInForce": "GTC",
+		    "type": "LIMIT",
+		    "side": "BUY",
+		    "stopPrice": "0.0",
+		    "icebergQty": "0.0",
+		    "time": 1499827319559
+		  }
+		]
+```
+</details>
+
 
 #### Check Order History
 ```php

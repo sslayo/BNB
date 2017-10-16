@@ -115,7 +115,7 @@ ETHUSDT 337.01000000
 
 #### Getting latest price of a symbol
 ```php
-       //Symbol required
+//Symbol required
 getDepth("BNBBTC"); // If left blank BNBBTC is default
 ```
 <details>
@@ -128,7 +128,7 @@ Will draw a depth chart
 
 #### Setting Limit Orders
 ```php
-            //Symbol, Quantity, Price, timeInForce
+//Symbol, Quantity, Price, timeInForce
 buyLimitOrder("BNBBTC", 50, 0.00002, "GTC"); // Default GTC if not entered, or can change it IOC 
 sellLimitOrder("BNBBTC", 50, 0.00002, "GTC"); // Default GTC if not entered, or can change it IOC 
 ```
@@ -142,7 +142,7 @@ returned json
 
 #### Setting Market Orders
 ```php
-             //Symbol, Quantity
+//Symbol, Quantity
 buyMarketOrder("BNBBTC", 50);
 sellMarketOrder("BNBBTC", 50);
 ```
@@ -156,7 +156,7 @@ returned json
 
 #### Check Order Status
 ```php
-           //Symbol, OrderID
+//Symbol, OrderID
 orderStatus("BNBBTC", 456454);
 ```
 <details>
@@ -183,7 +183,7 @@ orderStatus("BNBBTC", 456454);
 
 #### Check Open Orders
 ```php
-           //Symbol, OrderID
+//Symbol, OrderID
 openOrders("BNBBTC", 456454);
 ```
 <details>
@@ -209,6 +209,7 @@ openOrders("BNBBTC", 456454);
 		]
 ```
 </details>
+
 #### ALL orders; active, canceled or filled
 ```php
 allOrders();
@@ -240,7 +241,7 @@ allOrders();
 
 #### Check Order History
 ```php
-           //Symbol, OrderID
+//Symbol, OrderID
 orderHistory("BNBBTC"); // BNBBTC is default if left blank
 ```
 <details>
@@ -253,7 +254,7 @@ returned json
 
 #### Cancel Order 
 ```php
-          //Symbol, OrderID
+//Symbol, OrderID
 cancelOrder("BNBBTC", 456454);
 ```
 <details>

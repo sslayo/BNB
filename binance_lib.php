@@ -29,7 +29,7 @@ function getMarkets($markets="ALL") {
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);	
 	//Get all available markets
-	curl_setopt($ch, CURLOPT_URL,"https://www.binance.com/api/v1/ticker/allPrices");
+	curl_setopt($ch, CURLOPT_URL,url."v1/ticker/allPrices");
 	$result = curl_exec($ch);		
 	//Decode json
 	$json = json_decode($result);
@@ -72,13 +72,13 @@ function getMarkets($markets="ALL") {
 	if (($markets=="ALL") || ($markets=="BTC") || ($markets=="btc")) {
 		echo "BTC MARKETS".BR;
 	foreach ($BTCmarkets as $BTCmarket){
-		echo $BTCmarket['symbol']. " - ".$BTCmarket['price'].BR; 
+		echo $BTCmarket['symbol']. " ".$BTCmarket['price'].BR; 
 		}
 	}
 	if ($markets=="ALL" || $markets=="ETH" || $markets=="eth") {
 		echo "ETH MARKETS".BR;
 	foreach ($ETHmarkets as $ETHmarket){
-		echo $ETHmarket['symbol']. " - ".$ETHmarket['price'].BR; 
+		echo $ETHmarket['symbol']. " ".$ETHmarket['price'].BR; 
 		}
 	}
 		echo "USDT MARKETS".BR;
@@ -103,7 +103,7 @@ function getMarket($symbol="BNBBTC"){
 	$json = json_decode($result); // Results returned in jSON, decode and store in $json
 		
 	$price = $json->lastPrice; //Access the object lastPrice
-	echo "Price of $symbol: $price"; 
+	echo "Latest price ($symbol): $price"; 
 		
 }
 
@@ -402,6 +402,28 @@ function orderHistory($symbol) {
 	
 }
 
-getMarkets();
+function allOrders() {
+	
+	$serverTimestamp = time()*1000; // Take current UNIX timestamp and convert to miliseconds
+	$ch = curl_init(); // Initialise cURL
+	$params = "symbol=$symbol&timestamp=$serverTimestamp"; // Set required paramaters
+	$signiture = hash_hmac("sha256", $params, $secretKey); // Take the parameters, and sign them with the Secret Key
+	curl_setopt($ch, CURLOPT_URL, "https://www.binance.com/api/v3/allOrders?$params&signature=$signiture"); // Set URL + Parameters + Signiture
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // Return values
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET"); // HTTP Method to GET
+
+	$headers = array(); // Set up our Headers
+	$headers[] = "X-Mbx-Apikey: $apiKey"; // Put the API Key in HTTP Header 
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers); // Enable Headers
+
+	$result = curl_exec($ch); // Execute cURL command
+	if (curl_errno($ch)) { // Check if any errors
+		echo 'Error: ' . curl_error($ch); // Display Errors
+	}
+
+	$json = json_decode($result);
+	print_r($result); // Print Results
+	
+}
 
 ?>

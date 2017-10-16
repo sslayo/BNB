@@ -3,14 +3,10 @@ This project is designed to help you make your own projects that interact with t
 
 #### Installation
 ```
-npm install node-binance-api --save
+include 'binance_lib.php';
 ```
 
 #### Getting started
-```javascript
-const binance = require('node-binance-api');
-binance.options({
-	'APIKEY':'<key>',
-	'APISECRET':'<secret>'
-});
+```php
+setKeys("apikey", "secretkey");
 ```

@@ -12,7 +12,8 @@ setKeys("vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A", "Nhq
 ```
 #### Getting latest price of a symbol
 ```php
-getMarket("BNB");
+         //Symbol required         
+getMarket("BNBBTC");
 ```
 <details>
  <summary>View Response</summary>
@@ -114,6 +115,7 @@ ETHUSDT 337.01000000
 
 #### Getting latest price of a symbol
 ```php
+       //Symbol required
 getDepth("BNBBTC"); // If left blank BNB will be first answer
 ```
 <details>
@@ -126,7 +128,7 @@ Will draw a depth chart
 
 #### Setting Limit Orders
 ```php
-          //Symbol, Quantity, Price, timeInForce
+            //Symbol, Quantity, Price, timeInForce
 buyLimitOrder("BNBBTC", 50, 0.00002, "GTC"); // Default GTC if not entered, or can change it IOC 
 sellLimitOrder("BNBBTC", 50, 0.00002, "GTC"); // Default GTC if not entered, or can change it IOC 
 ```
@@ -140,7 +142,7 @@ returned json
 
 #### Setting Market Orders
 ```php
-          //Symbol, Quantity
+             //Symbol, Quantity
 buyMarketOrder("BNBBTC", 50);
 sellMarketOrder("BNBBTC", 50);
 ```
@@ -154,7 +156,7 @@ returned json
 
 #### Check Order Status
 ```php
-          //Symbol, OrderID
+           //Symbol, OrderID
 orderStatus("BNBBTC", 456454);
 ```
 <details>

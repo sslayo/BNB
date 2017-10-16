@@ -113,7 +113,7 @@ ETHUSDT 337.01000000
 ```
 </details>
 
-#### Getting latest price of a symbol
+#### Getting Detph Chart of Symbol
 ```php
 //Symbol required
 getDepth("BNBBTC"); // If left blank BNBBTC is default
@@ -122,7 +122,7 @@ getDepth("BNBBTC"); // If left blank BNBBTC is default
  <summary>View Response</summary>
 
 ```
-Will draw a depth chart
+http://cryptostat.org/binance/example.php
 ```
 </details>
 

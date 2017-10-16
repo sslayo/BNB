@@ -24,7 +24,7 @@ Price of BNBBTC: 0.00025287
 
 #### Getting latest price of a entire market, or each sub market
 ```php
-getMarkets("ALL");
+getMarkets();  // Default will show all markets 
 getMarkets("BTC");
 getMarkets("ETH");
 getMarkets("USDT");
@@ -109,5 +109,83 @@ ZECETH - 0.00000000
 USDT MARKETS
 BTCUSDT 5642.52000000
 ETHUSDT 337.01000000
+```
+</details>
+
+#### Getting latest price of a symbol
+```php
+getDepth("BNBBTC"); // If left blank BNB will be first answer
+```
+<details>
+ <summary>View Response</summary>
+
+```
+Will draw a depth chart
+```
+</details>
+
+#### Setting Limit Orders
+```php
+          //Symbol, Quantity, Price, timeInForce
+buyLimitOrder("BNBBTC", 50, 0.00002, "GTC"); // Default GTC if not entered, or can change it IOC 
+sellLimitOrder("BNBBTC", 50, 0.00002, "GTC"); // Default GTC if not entered, or can change it IOC 
+```
+<details>
+ <summary>View Response</summary>
+
+```
+returned json
+```
+</details>
+
+#### Setting Market Orders
+```php
+          //Symbol, Quantity
+buyMarketOrder("BNBBTC", 50);
+sellMarketOrder("BNBBTC", 50);
+```
+<details>
+ <summary>View Response</summary>
+
+```
+returned json
+```
+</details>
+
+#### Check Order Status
+```php
+          //Symbol, OrderID
+orderStatus("BNBBTC", 456454);
+```
+<details>
+ <summary>View Response</summary>
+
+```
+returned json
+```
+</details>
+
+#### Cancel Order 
+```php
+          //Symbol, OrderID
+cancelOrder("BNBBTC", 456454);
+```
+<details>
+ <summary>View Response</summary>
+
+```
+returned json
+```
+</details>
+
+#### Current Order 
+```php
+currentPosition();
+```
+<details>
+ <summary>View Response</summary>
+
+```
+returned json
 ```
 </details>

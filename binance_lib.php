@@ -81,8 +81,9 @@ function getMarkets($markets="ALL") {
 		echo $ETHmarket['symbol']. " ".$ETHmarket['price'].BR; 
 		}
 	}
-		echo "USDT MARKETS".BR;
+		
 	if ($markets=="ALL" || $markets=="USDT" || $markets=="usdt" || $markets=="usd") {
+		echo "USDT MARKETS".BR;
 	foreach ($USDTmarkets as $USDTmarket){
 		echo $USDTmarket['symbol']. " ". $USDTmarket['price'].BR; 
 		}

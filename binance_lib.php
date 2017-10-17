@@ -6,7 +6,7 @@
  * Released under the MIT License
  * ============================================================ */
 
-const url = 'https://www.binance.com/api/';
+const url = 'https://www.binance.com/api/'; 
 const BR = '<br>';
 function setKeys($apiKey, $secretKey) {
 	
@@ -25,7 +25,8 @@ function setKeys($apiKey, $secretKey) {
 
 function getMarkets($markets="ALL") {
 	$coins=array();
-	$ch = curl_init();
+	$ch = curl_init(); // Initialise cURL
+	// Set cURL options
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);	
 	//Get all available markets
